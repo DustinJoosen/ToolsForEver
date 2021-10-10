@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FabriekenController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Route::prefix('/fabrieken')->group(function(){
+    Route::get('/', [FabriekenController::class, 'index']);
+    Route::get('/create', [FabriekenController::class, 'create']);
+    Route::post('/store', [FabriekenController::class, 'store']);
+    Route::get('/{fabriek}/details', [FabriekenController::class, 'details']);
+    Route::get('/{fabriek}/edit', [FabriekenController::class, 'edit']);
+    Route::put('/{fabriek}/update', [FabriekenController::class, 'update']);
+    Route::get("/{fabriek}/delete", [FabriekenController::class, 'delete']);
+});
+
