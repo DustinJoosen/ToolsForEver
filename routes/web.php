@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FabriekenController;
+use App\Http\Controllers\LocatiesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ Route::get('/', function () {
     return view('index');
 });
 
+//all require authentication as admin, in the constructor
 Route::prefix('/fabrieken')->group(function(){
     Route::get('/', [FabriekenController::class, 'index']);
     Route::get('/create', [FabriekenController::class, 'create']);
@@ -31,3 +33,13 @@ Route::prefix('/fabrieken')->group(function(){
     Route::get("/{fabriek}/delete", [FabriekenController::class, 'delete']);
 });
 
+//all require authentication as admin, in the constructor
+Route::prefix('/locaties')->group(function(){
+    Route::get('/', [LocatiesController::class, 'index']);
+    Route::get('/create', [LocatiesController::class, 'create']);
+    Route::post('/store', [LocatiesController::class, 'store']);
+    Route::get('/{locatie}/details', [LocatiesController::class, 'details']);
+    Route::get('/{locatie}/edit', [LocatiesController::class, 'edit']);
+    Route::put('/{locatie}/update', [LocatiesController::class, 'update']);
+    Route::get("/{locatie}/delete", [LocatiesController::class, 'delete']);
+});

@@ -22,6 +22,8 @@
             </dd>
         </dl>
 
+        <a href="/fabrieken">terug</a>
+
 
     </div>
 @endsection

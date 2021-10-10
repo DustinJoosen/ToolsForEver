@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class FabriekenController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware("role:admin");
+    }
+
     public function index(){
         return view('fabrieken.index',[
             'fabrieken' => Fabriek::all()

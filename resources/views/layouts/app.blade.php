@@ -33,9 +33,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="/fabrieken" class="nav-link">Fabrieken</a>
-                        </li>
+                        @if(auth()->check() && auth()->user()->role->name == "admin")
+                            <li class="nav-item">
+                                <a href="/fabrieken" class="nav-link">Fabrieken</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/locaties" class="nav-link">Locaties</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
