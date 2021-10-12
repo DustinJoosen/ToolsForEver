@@ -68,4 +68,5 @@ class LocatiesController extends Controller
     public function delete(Request $request, Locatie $locatie){
         $locatie->delete();
         return redirect('/locaties');
-    }}
+    }
+}

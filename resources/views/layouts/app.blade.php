@@ -41,6 +41,9 @@
                                 <a href="/locaties" class="nav-link">Locaties</a>
                             </li>
                             <li class="nav-item">
+                                <a href="/accounts" class="nav-link">Accounts</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/artikelen" class="nav-link">Artikelen</a>
                             </li>
                         @elseif(auth()->check() && auth()->user()->role->name == "employee")

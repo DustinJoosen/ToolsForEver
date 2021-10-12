@@ -53,3 +53,13 @@ Route::prefix('/artikelen')->group(function(){
     Route::put('/{artikel}/update', [App\Http\Controllers\ArtikelenController::class, 'update']);
     Route::get("/{artikel}/delete", [App\Http\Controllers\ArtikelenController::class, 'delete']);
 });
+
+Route::prefix('/accounts')->group(function(){
+    Route::get('/', [App\Http\Controllers\AccountsController::class, 'index']);
+    Route::get('/create', [App\Http\Controllers\AccountsController::class, 'create']);
+    Route::post('/store', [App\Http\Controllers\AccountsController::class, 'store']);
+    Route::get('/{account}/details', [App\Http\Controllers\AccountsController::class, 'details']);
+    Route::get('/{account}/edit', [App\Http\Controllers\AccountsController::class, 'edit']);
+    Route::put('/{account}/update', [App\Http\Controllers\AccountsController::class, 'update']);
+    Route::get("/{account}/delete", [App\Http\Controllers\AccountsController::class, 'delete']);
+});
