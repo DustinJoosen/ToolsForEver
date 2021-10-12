@@ -43,3 +43,13 @@ Route::prefix('/locaties')->group(function(){
     Route::put('/{locatie}/update', [LocatiesController::class, 'update']);
     Route::get("/{locatie}/delete", [LocatiesController::class, 'delete']);
 });
+
+Route::prefix('/artikelen')->group(function(){
+    Route::get('/', [App\Http\Controllers\ArtikelenController::class, 'index']);
+    Route::get('/create', [App\Http\Controllers\ArtikelenController::class, 'create']);
+    Route::post('/store', [App\Http\Controllers\ArtikelenController::class, 'store']);
+    Route::get('/{artikel}/details', [App\Http\Controllers\ArtikelenController::class, 'details']);
+    Route::get('/{artikel}/edit', [App\Http\Controllers\ArtikelenController::class, 'edit']);
+    Route::put('/{artikel}/update', [App\Http\Controllers\ArtikelenController::class, 'update']);
+    Route::get("/{artikel}/delete", [App\Http\Controllers\ArtikelenController::class, 'delete']);
+});

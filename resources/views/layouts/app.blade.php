@@ -40,7 +40,15 @@
                             <li class="nav-item">
                                 <a href="/locaties" class="nav-link">Locaties</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="/artikelen" class="nav-link">Artikelen</a>
+                            </li>
+                        @elseif(auth()->check() && auth()->user()->role->name == "employee")
+                            <li class="nav-item">
+                                <a href="/artikelen" class="nav-link">Artikelen</a>
+                            </li>
                         @endif
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
