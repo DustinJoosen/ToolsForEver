@@ -66,9 +66,9 @@ Route::prefix('/accounts')->group(function(){
 });
 
 Route::prefix('/voorraad')->group(function(){
-    Route::get('/', [VoorraadController::class, 'index']);
-    Route::get('/create', [VoorraadController::class, 'create']);
-    Route::post('/store', [VoorraadController::class, 'store']);
-    Route::get('/totaal', [VoorraadController::class, 'totaal']);
-    Route::get('/bestellijst', [VoorraadController::class, 'bestellijst']);
+    Route::get('/', [VoorraadController::class, 'index'])->middleware("auth");
+    Route::get('/create', [VoorraadController::class, 'create'])->middleware("role:admin,employee");
+    Route::post('/store', [VoorraadController::class, 'store'])->middleware("role:admin,employee");
+    Route::get('/totaal', [VoorraadController::class, 'totaal'])->middleware("role:admin");
+    Route::get('/bestellijst', [VoorraadController::class, 'bestellijst'])->middleware("role:admin");
 });

@@ -1,9 +1,9 @@
-.vooraad_table{
-}
-
-.voorraad_table tr, th, td{
+.voorraad_table tr,
+.voorraad_table th,
+.voorraad_table td{
     border:1px solid black;
     padding:0 10px 0 10px;
+    border-collapse: collapse;
 }
 
 .voorraad_table th{
