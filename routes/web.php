@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FabriekenController;
 use App\Http\Controllers\LocatiesController;
+use App\Http\Controllers\VoorraadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -62,4 +63,12 @@ Route::prefix('/accounts')->group(function(){
     Route::get('/{account}/edit', [App\Http\Controllers\AccountsController::class, 'edit']);
     Route::put('/{account}/update', [App\Http\Controllers\AccountsController::class, 'update']);
     Route::get("/{account}/delete", [App\Http\Controllers\AccountsController::class, 'delete']);
+});
+
+Route::prefix('/voorraad')->group(function(){
+    Route::get('/', [VoorraadController::class, 'index']);
+    Route::get('/create', [VoorraadController::class, 'create']);
+    Route::post('/store', [VoorraadController::class, 'store']);
+    Route::get('/totaal', [VoorraadController::class, 'totaal']);
+    Route::get('/bestellijst', [VoorraadController::class, 'bestellijst']);
 });

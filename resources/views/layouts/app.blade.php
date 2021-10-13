@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -35,20 +36,34 @@
                     <ul class="navbar-nav mr-auto">
                         @if(auth()->check() && auth()->user()->role->name == "admin")
                             <li class="nav-item">
+                                <a href="/accounts" class="nav-link">Accounts</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/fabrieken" class="nav-link">Fabrieken</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/locaties" class="nav-link">Locaties</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/accounts" class="nav-link">Accounts</a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="/artikelen" class="nav-link">Artikelen</a>
                             </li>
+                            <div class="dropdown">
+                                <button class="nav-link btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Voorraad
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/voorraad">Voorraad</a>
+                                    <a class="dropdown-item" href="/voorraad/create">Voeg waarde toe</a>
+                                    <a class="dropdown-item" href="/voorraad/totaal">Totaal waarde</a>
+                                    <a class="dropdown-item" href="/voorraad/bestellijst">Bestellijst</a>
+                                </div>
+                            </div>
                         @elseif(auth()->check() && auth()->user()->role->name == "employee")
                             <li class="nav-item">
                                 <a href="/artikelen" class="nav-link">Artikelen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/voorraad" class="nav-link">Voorraad</a>
                             </li>
                         @endif
 

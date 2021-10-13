@@ -36,7 +36,7 @@
                             </select>
                         </div>
 
-                        @error('application_id')
+                        @error('fabriek_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -89,7 +89,7 @@
                         <label for="verkoop_waarde" class="col-md-4 col-form-label text-md-right">Verkoop waarde</label>
 
                         <div class="col-md-4">
-                            <input type="number" id="verkoop_waarde" name="verkoop_waarde" class="form-control @error('verkoop_waarde') is-invalid @enderror" value="{{ old('verkoop_waarde') }}" autofocus>
+                            <input type="number" step="0.01" id="verkoop_waarde" name="verkoop_waarde" class="form-control @error('verkoop_waarde') is-invalid @enderror" value="{{ old('verkoop_waarde') }}" autofocus>
 
                             @error('verkoop_waarde')
                             <span class="invalid-feedback" role="alert">

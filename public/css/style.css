@@ -1,0 +1,11 @@
+.vooraad_table{
+}
+
+.voorraad_table tr, th, td{
+    border:1px solid black;
+    padding:0 10px 0 10px;
+}
+
+.voorraad_table th{
+    background-color: #ccc;
+}
